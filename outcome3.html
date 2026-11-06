@@ -16,14 +16,18 @@
   move), path cost (the total expense of actions you took to reach your goal). There are also some other important terms such as search problem, what you are trying to solve; search tree, every possible path AI 
   explored; search strategy, the behavior of the algorithm; state space, all the possible states of the problem; and environment, how the path and state look. There are also three fundatemematal serach 
 algorithm, which are Breadth-First Search (BFS), Depth-First Search (DFS), and A* Search. </p>
-  <p>For easier demonstration, let's have a example of a train station. We have eight section of this train station, A-H, and our search problem is try to get to section H. Our state space is how the layout of the train
-  station looks like, which is the image below. </p>
+  <p>For easier demonstration, let's have a example of a train station. We have nine section of this train station, A-I, and our search problem is try to get to section H. Our state space is how the layout of the train
+  station looks like, which is the image below. And for a even simpler approach of this demonstration, we will assume the cost of each path will be one. </p>
   <p>  <img src ="https://miro.medium.com/v2/resize:fit:772/1*tiTQrfi7D4lpND8jsfdK4Q.png" alt ="Train station example"></p>
-  <p>Breadth-First Search, or BFS, is a search that often used to find the shortest path to your goal. The search strategy or the way it work is that it search layer by layer and try to find which route would be the shortest.
-    Our initial state will be section A and we will begin searching layer by layer, which mean searching the very first two section that connected to A, which is section B, E, and F. The legal action we can take here is to go 
-    to section B, E, or F. Using the idea of First In First Out, or basically first come first serve, and in this example, B will be explored first, then E, and then F. Our transition model will describe something like 
-      "We are currently in section B. For BFS, we will perform goal test after every action we took which in this case, none of the three station is section is H. So we continue explore and using that concept of FIFO, we 
-    will explore sections that connected to B first then E, and then F again. </p>
+  <p>Breadth-First Search, or BFS, is a search that is often used to find the shortest path to your goal. The search strategy, or the way it works, is that it searches layer by layer, which means we explore all the sections at one level
+    before moving on to the next, trying to find which route would be the shortest. Our initial state will be section A, and we begin by exploring the very first three sections that are connected to A, which are sections B, E, 
+and F. The possible action we can take here is to go to section B, E, or F, using the idea of First In, First Out, or basically first come, first served. In this example, B will be explored first, then E, and then F. For BFS, we 
+will perform a goal test after every action we take, which, in this case, none of the three stations is section H, so we continue exploring. Using that concept of FIFO, we will explore sections that are connected to B first, then E, and 
+then F again. We explore section C, then I, neither is H, continue explore. Section D and G are next on the list, and neither is H, so we continue exploring and finally reach our destination, station H. So our shortest, which is also 
+our only path for this example, will be A>B>C>D>H. This route represents one branch of our search tree, and this costs us four. However, if H is not only connected to D but also I, the path the algorithm would take would be A>E>I>H, 
+which is shorter and costs us only three. BFS, as we already covered, is utilized to find the shortest path to reach our goal, however, it is not cheap nor it is memory friendly. For simplicity, our example assumes every connection
+costs the same. But, for most, if not all, situation won't cost the same, so BFS might took the shortest but most expensive route. It is also not memory efficient because the algorithm must remember every single train section it did and didn't  
+explore, and if this train didn't have nine but a million sections, BFS will not be ideal to be used. </p>
    <p>Depth-First Search</p>
    <p>A* Search</p>
 </html>
