@@ -28,6 +28,10 @@ our only path for this example, will be A>B>C>D>H. This route represents one bra
 which is shorter and costs us only three. BFS, as we already covered, is utilized to find the shortest path to reach our goal, however, it is not cheap nor it is memory friendly. For simplicity, our example assumes every connection
 costs the same. But, for most, if not all, situation won't cost the same, so BFS might took the shortest but most expensive route. It is also not memory efficient because the algorithm must remember every single train section it did and didn't  
 explore, and if this train didn't have nine but a million sections, BFS will not be ideal to be used. </p>
-   <p>Depth-First Search</p>
+   <p>Depth-First Search, or DFS, is a search that is often used to save memory. The search strategy of this search is basically explore one whole connection before moving on to the next. Our initial state is still A, our legal action still B, E and F.
+We will move to B first but unlike BFS, we will continue explore this branch. We explore C then D then H, and the search ends here because we already found H. However, if rather we have H connected to D, we have it connected to F, this 
+  means it will explore the whole train station similar to BFS. But, unlike BFS, it won't "remember" the path it explored, they replace it will new route instead which make it very memory friendly. Beside that point, DFS is pretty much a luck-based search
+  as if we weren't lucky and get that hypotehical situation where H connected to I, the algorithm took just as long as BFS. Beside the point that it is useful when you want to save memory, it doesn't care about path cost or the shortest route. The algorithm
+  just dived blindly straight into one path and hope that it's the right one. </p>
    <p>A* Search</p>
 </html>
