@@ -7,35 +7,47 @@
 <a href="index.html">Home</a>
   <a href="outcome1.html">History </a>
   <a href="outcome2.html">Ethical Issues</a>
-     <a href="outcome3.html">Search </a>
+     <a href="outcome3.html">Search and Adverserial Reasoning</a>
    <a href="outcome4.html">Outcome 4</a>
    <a href="outcome5.html">Outcome 5</a>
   <a href="credits.html">Credits </a>
     </nav>
+  <h2> Search Algorithm</h2>
    <p>Search, as the name implies, is the process of AI exploring its search space—consisting of every possible path, solution, and state that it can evaluate—to reach its goal. Search often comes with five main
    components: initial state (your starting point), goal test (test if you are at your destination), action (describe the possible step you can take during the path), transition model (describe the result after you 
   move), path cost (the total expense of actions you took to reach your goal). There are also some other important terms such as search problem, what you are trying to solve; search tree, every possible path AI 
-  explored; search strategy, the behavior of the algorithm; state space, all the possible states of the problem; and environment, how the path and state look. There are also three fundatemematal serach 
+  explored; search strategy, the behavior of the algorithm; state space, all the possible states of the problem; and environment, how the path and state look. There are also three fundatemematal search
 algorithm, which are Breadth-First Search (BFS), Depth-First Search (DFS), and A* Search. </p>
   <p>For easier demonstration, let's have a example of a train station. We have nine section of this train station, A-I, and our search problem is try to get to section H. Our state space is how the layout of the train
   station looks like, which is the image below. And for a even simpler approach of this demonstration, we will assume the cost of each path will be one minute. </p>
   <p>  <img src ="https://miro.medium.com/v2/resize:fit:772/1*tiTQrfi7D4lpND8jsfdK4Q.png" alt ="Train station example"></p>
-  <p>Breadth-First Search, or BFS, is a search that is often used to find the shortest path to your goal. The search strategy, or the way it works, is that it searches layer by layer, which means we explore all the sections at one level
+  <h3> Breath-First Search </h3>
+  <p>Breadth-First Search (BFS) is a search algorithm often used to find the shortest path to a goal. The search strategy, or the way it works, is that it searches layer by layer, which means we explore all the sections at one level
     before moving on to the next, trying to find which route would be the shortest. Our initial state will be section A, and we begin by exploring the very first three sections that are connected to A, which are sections B, E, 
-and F. The possible action we can take here is to go to section B, E, or F, using the idea of First In, First Out, or basically first come, first served. In this example, B will be explored first, then E, and then F. For BFS, we 
+and F. The possible actions are to go to section B, E, or F, using the First In, First Out (first come, first served) idea. In this example, B will be explored first, then E, and then F. For BFS, we 
 will perform a goal test after every action we take, which, in this case, none of the three stations is section H, so we continue exploring. Using that concept of FIFO, we will explore sections that are connected to B first, then E, and 
 then F again. We explore section C, then I, neither is H, continue explore. Section D and G are next on the list, and neither is H, so we continue exploring and finally reach our destination, station H. So our shortest, which is also 
 our only path for this example, will be A>B>C>D>H. This route represents one branch of our search tree, and this costs us four. However, if H is not only connected to D but also I, the path the algorithm would take would be A>E>I>H, 
 which is shorter and costs us only three. BFS, as we already covered, is utilized to find the shortest path to reach our goal, however, it is not cheap nor it is memory friendly. For simplicity, our example assumes every connection
 costs the same. But, for most, if not all, situation won't cost the same, so BFS might took the shortest but most expensive route. It is also not memory efficient because the algorithm must remember every single train section it did and didn't  
 explore, and if this train didn't have nine but a million sections, BFS will not be ideal to be used. </p>
-   <p>Depth-First Search, or DFS, is a search that is often used to save memory. The search strategy of this search is basically explore one whole connection before moving on to the next. Our initial state is still A, our legal action still B, E and F.
-We will move to B first but unlike BFS, we will continue explore this branch. We explore C then D then H, and the search ends here because we already found H. However, if rather we have H connected to D, we have it connected to F, this 
-  means it will explore the whole train station similar to BFS. But, unlike BFS, it won't "remember" the path it explored, they replace it will new route instead which make it very memory friendly. Beside that point, DFS is pretty much a luck-based search
-  as if we weren't lucky and get that hypotehical situation where H connected to I, the algorithm took just as long as BFS. Beside the point that it is useful when you want to save memory, it doesn't care about path cost or the shortest route. The algorithm
-  just dived blindly straight into one path and hope that it's the right one. The route is the branch and our search tree. </p>
-   <p>A* Search is a serach that known where its goal is at the begining and is used to find the cheapest path to a goal. It uses costs and estimates to determine which station to explore first by using the formula, f(n) = g(n) + h(n), where g(n) mean the 
-  current path cost, h(n) mean the remaining cost to reach to section H, and f(n) is the total estimated cost. A* will priotize section that have the lowest estimated cost. To do this formula, we would find the f(n) of every section 
-   
-   A* often ultized for problem that require a lot of nodes, and also have different cost because it can skips a lot of nodes and also find the cheapest way to finsish the search problem, even though it is not quite memory effiecent as DFS.</p>
+    <h3> Depth-First Search </h3>
+    <p>Depth-First Search, or DFS, is a search that is often used to save memory. The search strategy of this search is basically to explore one whole connection before moving on to the next. Our initial state is still A, our legal action still B, E and F.
+We will move to B first, but unlike BFS, we will continue to explore this branch. We explore C, then D, then H, and the search ends here because we already found H. However, if instead we have H connected to D, and we have it connected to F, this 
+  means it will explore the whole train station similar to BFS. But, unlike BFS, it won't "remember" the path it explored; instead, it will take a new route, which makes it very memory-friendly. Besides that point, DFS is pretty much a luck-based search
+  as if we weren't lucky and got that hypothetical situation where H connected to I, the algorithm took just as long as BFS. Besides the point that it is useful when you want to save memory, it doesn't care about path cost or the shortest route. The algorithm
+  just dives blindly straight into one path and hopes that it's the right one. </p>
+   <h3> A*/A-Star Search</h3>
+  <p>A* Search is a serach that known where its goal is at the begining and is used to find the cheapest path to a goal. It uses costs and estimates to determine which station to explore first by using the formula, f(n) = g(n) + h(n), where g(n) means the 
+  current path cost, h(n) means the remaining cost to reach section H, and f(n) is the total estimated cost. A* will priotize section that have the lowest estimated cost. To do this formula, we would find the f(n) of every section. Let's start with A, which is
+  our initial state, so they don't have any cost, and the remaining cost to reach H is 4 because we need to explore four more stations to reach H. The formula would look like this: g(0) + h(4) = 4. Now we would check A's neighbors, B, F, and E. The current cost
+for all three of them is 1, but the remaining cost differs. h(n) for B is 3, but for F and E it is 5 because the algorithm needs to backtrack back to A to go over B which add another extra exploration step. The final f(n) for B is, g(1) + h(3) = 4; F and E is, 
+g(1) + h(5) = 6. As B have the cheapest f(n), A* will decide to explore B and ignore both station F and E. Now the algorithm will still find the f(n) of the neighbor station to B, which is C, despite C being its only connection, and f(n) of C is 4. Now we repeat 
+this step again for C's neighbor, D, which had f(n) of 4, and G has 5 because the algorithm has to backtrack to C as G isn't connected to H. Repeat what we've been doing: the f(n) of H is g(4) + h(0), which is 4. Due to the simplicity of the example, A* can skipped 
+the hassle of exploring E, F, and G, however, in real-life, the path cost rarely be 1. If in this situation that B turned out to be more expensive than F, the algorithm will explore F but ultimately resolve to explore B because H doesn't connect to F. A* often ultized 
+for problem that require a lot of nodes, and often the goal would have mutiple connection with those nodes. They are also being utilized when the problem involves different costs because it potentially skips a lot of nodes and also finds the cheapest way to finish the 
+search problem. However, one problem with it is that it is not memory efficient because it needs to know the current cost to use in its formula, which means it has to keep track of the cost of the previous path that it explored and also skipped paths in case it needs 
+to backtrack here. </p>
+  <h2> Adverserial Reasoning</h2>
+  <p> </p>
 </html>
