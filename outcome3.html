@@ -38,7 +38,7 @@ We will move to B first, but unlike BFS, we will continue to explore this branch
   as if we weren't lucky and got that hypothetical situation where H connected to I, the algorithm took just as long as BFS. Besides the point that it is useful when you want to save memory, it doesn't care about path cost or the shortest route. The algorithm
   just dives blindly straight into one path and hopes that it's the right one. </p>
    <h3> A*/A-Star Search</h3>
-  <p>A* Search is a serach that known where its goal is at the begining and is used to find the cheapest path to a goal. It uses costs and estimates to determine which station to explore first by using the formula, f(n) = g(n) + h(n), where g(n) means the 
+  <p>A* Search is a search that known where its goal is at the begining and is used to find the cheapest path to a goal. It uses costs and estimates to determine which station to explore first by using the formula, f(n) = g(n) + h(n), where g(n) means the 
   current path cost, h(n) means the remaining cost to reach section H, and f(n) is the total estimated cost. A* will priotize section that have the lowest estimated cost. To do this formula, we would find the f(n) of every section. Let's start with A, which is
   our initial state, so they don't have any cost, and the remaining cost to reach H is 4 because we need to explore four more stations to reach H. The formula would look like this: g(0) + h(4) = 4. Now we would check A's neighbors, B, F, and E. The current cost
 for all three of them is 1, but the remaining cost differs. h(n) for B is 3, but for F and E it is 5 because the algorithm needs to backtrack back to A to go over B which add another extra exploration step. The final f(n) for B is, g(1) + h(3) = 4; F and E is, 
@@ -51,12 +51,17 @@ to backtrack here. </p>
   <h2> Adverserial Reasoning</h2>
   <p> Unlike Search, Adverserial Reasoning involved two or more agents. Adverserial Reasoning is basically the process of AI accounting the other agent's strategies and intent to make an action. There is some components coming along with it just like the Search Algorithm
   which are Game State, Initial State, Action, Game Tree, and Terminal State. The Game State tells you what is the current situation of the game, for example, <br> <img src ="https://chess-teacher.com/wp-content/uploads/2024/01/queen-check-lonely-king.webp" alt ="Chess game with the 
-  Rook is checking the King"></br> <br> in this picture the Game State is the White Rook is checking the Black King. The Initial State is pretty much the same as Search Algorithm's Initial State, the starting point of the game.</br> The Terminal State is simply where the game end, or with
+  Rook is checking the King"> <br> in this picture the Game State is the White Rook is checking the Black King. The Initial State is pretty much the same as Search Algorithm's Initial State, the starting point of the game. The Terminal State is simply where the game end, or with
 the Chess example, it is when one side got checkmate. Action is also similar to Search Algorithm's Action which is the possibble move that one player make. Finally, the Game Tree, which is simply just consist of all possible a player made and its result. Imagine if you were 
 playing Rock, Paper, Scissor with your friend and you both have Rock so the game continue and there are three possible action which are Rock again or Paper or Scissor. If you played Rock again, and your friend too, you draw again. But if you choose Scissor and your friend decided
 Rock, you lost, but you won if you go with Paper and your friend go with Rock. That is basically the Game Tree: each Game State represents a node of the tree and each Action represent the Branch. And when talking about Adverserial Reasoning, there are two fundemental algorithm, which 
 are Minmax and Alpha-Beta Pruning. 
     <h3> Minmax</h3>
-    <p> </p>
-  </p>
+    <p>Minmax is basically an algorithm where you, the maximizer, try to get the highest score while your friend, who is the minimizer, tries to get you the lowest score. Let's use this example of Tic-Tac-Toe game below <br> <img src="https://commons.wikimedia.org/wiki/File:Tic_Tac_Toe.jpg">
+  <br> In this example, let's say you are O and your friend is X, and it's currently O's turn, which is you, the Maximizer. You have three legal moves: the middle of the first column, the middle of the top row, and right most of top row. If you decide to draw O in the middle of the first column, you have 
+  won the game, and it's a +1 for you. However, if you choose right most of top row, you allow your friend to have their X the top middle and win the game, which is a -1 for you. Now if your friend decides not to do that and puts their X in the middle of the first column instead, you can only put
+  your O in the top middle, and the game is now a tie, and you got 0 points. For your final legal move, which is middle top, you got a 0, and the game continues. Now your friend has two moves they can make: the middle of the first column or the rightmost of the top row. If they choose the second option, you win the 
+  game, +1 for you; otherwise, it would be a tie and 0 for you. That is basically how Minmax works; however, in a more complicated game such as Chess, Minmax might take forever because the algorithm accounts for every single move and its result.
+ </p>
+
 </html>
