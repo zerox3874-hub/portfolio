@@ -63,7 +63,7 @@ are Minimax and Alpha-Beta Pruning.
   your O in the top middle, and the game is now a tie, and you got 0 points. For your final legal move, which is middle top, you got a 0, and the game continues. Now your friend has two moves they can make: the middle of the first column or the rightmost of the top row. If they choose the second option, you win the 
   game, +1 for you; otherwise, it would be a tie and 0 for you. That is basically how Minimax works; however, in a more complicated game such as Chess, Minimax might take forever because the algorithm accounts for every single move and its result.
  </p>
-<g3> Alpha-Beta Pruning</g3>
+<h3> Alpha-Beta Pruning</h3>
   <p>This is why we turn to Alpha-Beta Pruning. It is pretty similar to Minimax; Alpha is basically the maximizer and vice versa for Beta. However, the main difference between these two is that Minimax checks every single node and branch of the Game Tree, but Alpha-Beta Pruning will completely ignore branches that
 are not beneficial for you, hence the name "Pruning." Remember the score in Minimax we've talked about above; those are the core parts of how Pruning works. They use those scores to evaluate which branch to prune. <br> <img src ="https://cdn.knowledgegate.ai/blog-assets/blog_asset_1784218435201_q9hhel.jpg" alt="Alpha-Beta Pruning Desmonstration">
 <br> Let's say you and your friend play another little game, and that is your Game Tree. You are still the maximizer, or Alpha, and your friend is still the minimizer, or Beta. At the beginning of the game, neither of you knows what the possible scores are yet, so you both assume the worst-case scenario for both of you,
